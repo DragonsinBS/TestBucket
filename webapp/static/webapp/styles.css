@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
+overflow-x: hidden;
 background-image: "C:\Users\HP\Pictures\icey2.png";
 background-size: cover;
 background-repeat: no-repeat;
@@ -108,4 +109,20 @@ color: white;
 
 .links a{
 margin-left: 4px;
+}
+
+#question-field{
+  margin: 20px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.btn-primary {
+  background-color: #0753f3;
+}
+
+.shadow-box{
+  padding: 10px;
+  border-style: solid;
+  box-shadow: 5px 5px #0753f3;
 }

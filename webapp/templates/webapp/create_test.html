@@ -5,9 +5,44 @@ Create Test
 {% endblock %}
 
 {% block body %}
-<button id="add_question">Add New Question</button>
-<div >
-  <ul id="questions">
-  </ul>
+<div class="row">
+<div class="col-lg-6 ">
+  <form id="question-field" class="shadow-box">
+    <div class="form-group">
+      <h4>Add questions here</h4>
+    </div>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput">Question</label>
+      <textarea type="text" class="form-control" id="question" rows=5></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2">Option A</label>
+      <input type="text" class="form-control" id="option-a">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2">Option B</label>
+      <input type="text" class="form-control" id="option-b">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2">Option C</label>
+      <input type="text" class="form-control" id="option-c" >
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="formGroupExampleInput2">Option D</label>
+      <input type="text" class="form-control" id="option-d" >
+    </fieldset>
+    <button type="button"  class="btn btn-primary" id="add_question">Add Question</button>
+  </form>
 </div>
+
+<div class="col-lg-6" style="overflow-y: scroll !important; height:600px;">
+  <ol id="questions">
+
+  </ol>
+</div>
+
+
+</div>
+
+
 {% endblock %}
