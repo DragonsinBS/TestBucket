@@ -9,3 +9,9 @@ def index(request):
 
 def create_test(request):
     return render(request,'webapp/create_test.html')
+
+def answer_test(request):
+    return render(request,'webapp/answer_test.html')
+
+def dashboard(request):
+    return render(request,'webapp/dashboard.html')

@@ -42,12 +42,10 @@ class Question(models.Model):
 class Response(models.Model):
     student_id=models.ForeignKey(Student, on_delete=models.CASCADE)
     test_id=models.ForeignKey(Test, on_delete=models.CASCADE)
+    question_id=models.ForeignKey(Question, on_delete=models.CASCADE)
     #the below code is to make multiple foreign keys
     class Meta:
-        unique_together=(('student_id','test_id'))
-
-    question_id=models.ForeignKey(Question, on_delete=models.CASCADE)
-
+        unique_together=(('student_id','test_id','question_id'))
     #the below is to be used as enum
     options=[
     ('A','Option A'),
@@ -55,7 +53,9 @@ class Response(models.Model):
     ('C','Option C'),
     ('D','Option D')
     ]
-    Response=models.CharField(max_length=1,choices=options)
+    response=models.CharField(max_length=1,choices=options)
+    scores=[(1,1),(1,1)]
+    score=models.IntegerField(choices=scores,default=1)
 
 class TotalScore(models.Model):
     student_id=models.ForeignKey(Student, on_delete=models.CASCADE)

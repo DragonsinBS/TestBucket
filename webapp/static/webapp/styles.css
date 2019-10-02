@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-overflow-x: hidden;
+overflow: auto;
 background-image: "C:\Users\HP\Pictures\icey2.png";
 background-size: cover;
 background-repeat: no-repeat;
@@ -19,6 +19,10 @@ align-content: center;
   margin-top: 50px;
   margin-left: 250px;
   font-size: 100px
+}
+
+.white{
+  color: white;
 }
 
 .card{
@@ -125,4 +129,21 @@ margin-left: 4px;
   padding: 10px;
   border-style: solid;
   box-shadow: 5px 5px #0753f3;
+}
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu div {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+div.scrollmenu div:hover {
+    background-color: #777;
 }
