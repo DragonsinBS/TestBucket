@@ -3,60 +3,23 @@
 {% block title %}
 Answer Test
 {% endblock %}
-
 {% block body %}
-<ol>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
-  <li>
-    <h5  class="white">Which is used for reading streams of raw bytes such as image data and for reading streams of characters, consider using FileReader?</h5>
-    <input type="radio" name='1' class='white'>FileInputStream<br>
-    <input type="radio" name='1' class='white'>FileOutputStream<br>
-    <input type="radio" name='1' class='white'>Both A & B<br>
-    <input type="radio" name='1' class='white'>None of the above
-  </li>
+<div class="container">
 
+
+<ol class="white">
+  {% for item in questions %}
+  <li color="white">
+    <h5  class="white">{{ item.question }}</h5>
+    <input type="radio" name="{{ forloop.counter }}" ><span class='white'>{{ item.optionA }}</span><br>
+    <input type="radio" name="{{ forloop.counter }}" ><span class='white'>{{ item.optionB }}</span><br>
+    <input type="radio" name="{{ forloop.counter }}"><span class='white'>{{ item.optionC }}</span><br>
+    <input type="radio" name="{{ forloop.counter }}"><span class='white'>{{ item.optionD }}</span>
+  </li>
+  {% endfor %}
 </ol>
+<button type="button" class="btn white test_submit">Submit Test</button>
+</div>
 
 
 {% endblock %}

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'webapp/styles.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
@@ -24,14 +25,17 @@
 </head>
 <body background='{%static "webapp/m2.jpg"%}'>
 
-  <nav class="navbar navbar-expand-sm">
-  <ul class="navbar-nav">
+  <nav class="navbar ">
+  <ul class="nav navbar-nav">
     <li class="nav-item">
       <a class="nav-brand" href="/">TestBucket</a>
     </li>
 
-  </ul>
 
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+      <li ><a href="/logout" class="logout_btn">Logout</a></li>
+    </ul>
 </nav>
   {% block body %}{% endblock %}
 </body>

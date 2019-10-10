@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   var count=0;
 
   document.getElementById('add_question').onclick=()=>{
+    if(count == 0){
+      document.getElementById('create_test').disabled=false;
+    }
     if(count>10){
       alert("Only 10 questions allowed");
       return false;
@@ -15,5 +18,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     count++;
 
   };
+
 
 });

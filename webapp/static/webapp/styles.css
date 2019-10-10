@@ -2,17 +2,25 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
+  width: 100%;
 overflow: auto;
-background-image: "C:\Users\HP\Pictures\icey2.png";
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-font-family: 'Numans', sans-serif;
+/*font-family: 'Pacifico', cursive !important;*/
+}
+
+.row{
+  width:100%;
 }
 
 .container{
-height: 100%;
+height: auto;
 align-content: center;
+}
+
+.test_submit{
+  background-color: #84afda;
 }
 
 .upcard{
@@ -23,12 +31,14 @@ align-content: center;
 
 .white{
   color: white;
+  opacity: 100;
 }
+
 
 .card{
 height: 300px;
-margin-top: 170px;
-margin-bottom: auto;
+margin-top: 125px;
+margin-bottom: 0;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
@@ -36,30 +46,13 @@ background-color: rgba(0,0,0,0.5) !important;
 .nav-brand{
   font-family: 'Pacifico', cursive;
   font-size: 40px;
-  color: #FFFFFF
-}
-
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFFFFF;
-}
-
-.social_icon span:hover{
-color: black;
-cursor: pointer;
+  color: #0056b3;
 }
 
 .card-header h3{
 color: white;
 }
 
-.social_icon{
-position: absolute;
-color: white;
-right: 20px;
-top: -45px;
-}
 
 .input-group-prepend span{
 width: 50px;
@@ -121,14 +114,18 @@ margin-left: 4px;
   margin-left: 5px;
 }
 
+
+
 .btn-primary {
   background-color: #0753f3;
 }
 
 .shadow-box{
+  height: 650px;
+  background-color: rgba(50, 50, 50, 0.5);
   padding: 10px;
   border-style: solid;
-  box-shadow: 5px 5px #0753f3;
+  /*box-shadow: 5px 5px #0753f3;*/
 }
 
 div.scrollmenu {
@@ -146,4 +143,43 @@ div.scrollmenu div {
 
 div.scrollmenu div:hover {
     background-color: #777;
+}
+
+
+.logout_btn{
+  font-size: 25px !important;
+  color: #0056b3 !important;
+  font-family: 'Pacifico', cursive !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #999;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0056b3;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.site_btn{
+  background-color: #98a3c7;
+  color: #fff;
+}
+
+#create_test{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
 }

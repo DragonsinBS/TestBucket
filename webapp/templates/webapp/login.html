@@ -6,8 +6,8 @@ Login Page
 
 {% block body %}
 <div class="container">
-	<div class="d-flex justify-content-center h-100">
-  
+	<div class="d-flex justify-content-center h-100 login_div">
+
 		<div class="card">
 
 			<div class="card-header">
@@ -17,13 +17,14 @@ Login Page
 			<div class="card-body">
         <div>
           <br>
-				<form>
+				<form method="post" action="/login">
+					{% csrf_token %}
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user" font-color="#FFFFFF"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input type="text" class="form-control" placeholder="username" name="username">
 
 					</div>
 					<div class="input-group form-group">
@@ -31,7 +32,7 @@ Login Page
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
             <br>
-						<input type="password" class="form-control" placeholder="password">
+						<input type="password" class="form-control" placeholder="password" name="password">
 					</div>
 
 					<div class="form-group">
