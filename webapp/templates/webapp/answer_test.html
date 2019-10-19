@@ -3,11 +3,16 @@
 {% block title %}
 Answer Test
 {% endblock %}
-{% block body %}
+{% block navs %}
+<ul class="nav navbar-nav navbar-right">
+    <li ><a href="/logout" class="logout_btn">Logout</a></li>
+  </ul>
+{% endblock %}
+{% block main %}
 <div class="container">
 
 
-<ol class="white">
+<ol class="white" style="margin-left:200px;margin-right:200px;">
   {% for item in questions %}
   <li color="white">
     <h5  class="white">{{ item.question }}</h5>
@@ -18,7 +23,7 @@ Answer Test
   </li>
   {% endfor %}
 </ol>
-<button type="button" class="btn white test_submit">Submit Test</button>
+<button type="button" class="btn " style="background-color:#02294f !important;color:white !important;width:100px;margin-left:230px;margin-bottom:40px">Submit Test</button>
 </div>
 
 

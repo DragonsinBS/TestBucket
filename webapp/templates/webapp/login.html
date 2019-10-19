@@ -4,14 +4,24 @@
 Login Page
 {% endblock %}
 
-{% block body %}
+{% block main %}
+{% load static %}
+
 <div class="container">
-	<div class="d-flex justify-content-center h-100 login_div">
-
-		<div class="card">
-
-			<div class="card-header">
-				<h3>Sign In</h3>
+	<div class=" row" >
+		<div class="col-lg-6 login-img">
+		<img src="{% static 'webapp/final.svg' %}" alt="">
+		</div>
+		<div class="login-card card col-lg-6">
+			<div class="card-body">
+		<p class="card-text" style="font-family: 'Indie Flower', cursive;font-size:50px;color:#02294f">Learners need endless feedback more than they need endless teaching<br>Login to start off</P>
+		<button onclick="document.getElementById('login_form').style.display='block'" class="btn" style="background-color:#02294f !important;color:white !important;">Login</button>
+		</div>
+		</div>
+		<div id="login_form" class="modal">
+			<div class="modal-content">
+			<div class="card-header" style="background-color:#3682894d ">
+				<h3 style="color:#02294f !IMPORTANT">Sign In</h3>
 
 			</div>
 			<div class="card-body">
@@ -37,12 +47,25 @@ Login Page
 
 					<div class="form-group">
 
-						<input type="submit"  value="Login" class="btn login_btn">
+						<input type="submit"  value="Login" class="btn login_btn" style="background-color:#02294f !important;color:white !important;">
 					</div>
 				</form>
 			</div>
+			</div>
+			<script>
+			// Get the modal
+			var modal = document.getElementById('login_form');
 
-		</div>
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			    if (event.target == modal) {
+			        modal.style.display = "none";
+			    }
+			}
+			</script>
+
+
 	</div>
+</div>
 </div>
 {% endblock %}

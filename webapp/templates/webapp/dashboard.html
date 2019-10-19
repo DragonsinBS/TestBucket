@@ -2,39 +2,40 @@
 {% block title %}
 Dashboard
 {% endblock %}
-{% block body %}
+{% block navs %}
+<ul class="nav navbar-nav navbar-right">
+    <li ><a href="/logout" class="logout_btn">Logout</a></li>
+  </ul>
+  {% endblock %}
+{% block main %}
 {% load static %}
-<div class="row">
-<div class="col-lg-6">
-<div class="scrollmenu">
-  <div class="card">
+
+
+<style>
+  body{
+    background-color:#fff !important;
+
+  }
+  </style>
+<div class="container">
+
+<div class="card-columns">
+  {% for course in courses %}
+  <div class="card" style="background-color=#10946F !important">
   <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some example text. Some example text.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <h4 class="card-title">{{course.course_name}}</h4>
+    <p class="card-text">{{course.description}}</p>
+    <a class="btn card-link" href="/teacher/course/{{course.course_id}}" style="background-color:#02294f;color:white">Go To Course</a>
   </div>
 </div>
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some example text. Some example text.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some example text. Some example text.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-</div>
+{% endfor %}
+
+
 
 </div>
 </div>
-<p>{{ type }}</p>
+
+
+
 
 {% endblock %}

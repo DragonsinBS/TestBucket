@@ -4,10 +4,20 @@
 html,body{
   width: 100%;
 overflow: auto;
-background-size: cover;
+
 background-repeat: no-repeat;
+background-size: cover;
+
+background-position: center;
 height: 100%;
 /*font-family: 'Pacifico', cursive !important;*/
+}
+
+
+
+.grid-container {
+  margin-left: 50%;
+  margin-right: 50%;
 }
 
 .row{
@@ -15,12 +25,79 @@ height: 100%;
 }
 
 .container{
-height: auto;
-align-content: center;
+  margin-top: 50px;
+  padding-right: 0;
+  max-width: 100% !important;
+  display: grid;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-.test_submit{
-  background-color: #84afda;
+.login-img{
+  margin-top:60px;
+}
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  padding-left:300px;
+  padding-right: 300px;
+}
+
+.modal-content {
+
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+
+  to {transform: scale(1)}
+}
+
+
+.dflex{
+  background-position: right;
+  height:auto;
+}
+
+.navbar{
+  position: fixed;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .upcard{
@@ -29,24 +106,53 @@ align-content: center;
   font-size: 100px
 }
 
-.white{
+/*.white{
   color: white;
   opacity: 100;
 }
-
+*/
+.scrollmenu{
+  margin-left: 50px;
+  margin-right: 50px;
+  width: auto;
+  padding: 10px ;
+  background-color: #0056b3;
+  opacity: 0.7;
+}
 
 .card{
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-top: 100px;
 height: 300px;
-margin-top: 125px;
-margin-bottom: 0;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgb(29,62,65,0.3) !important;
+}
+
+.login-card{
+  margin-top: 175px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  height: 400px;
+  width: 100px !important;
+  border: 100px;
+  background-color: rgba(54, 130, 137, 0.3)!important;
+}
+
+.card-columns {
+
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
 }
 
 .nav-brand{
   font-family: 'Pacifico', cursive;
   font-size: 40px;
-  color: #0056b3;
+  color: #02294f;
 }
 
 .card-header h3{
@@ -148,7 +254,7 @@ div.scrollmenu div:hover {
 
 .logout_btn{
   font-size: 25px !important;
-  color: #0056b3 !important;
+  color: #02294f !important;
   font-family: 'Pacifico', cursive !important;
 }
 

@@ -1,0 +1,60 @@
+{% extends 'webapp/template.html' %}
+{% block title %}
+{{ course_title }}
+{% endblock %}
+
+{% block navs %}
+<ul class="nav  navbar-right">
+    <li ><a href="/teacher/{{course_id}}/create_test" class="logout_btn" style="color:#29275f ;margin-right:20px;border-right:solid">New Test<i class="material-icons">add_box</i></a></li>
+    <li ><a href="/logout" class="logout_btn">Logout</a></li>
+  </ul>
+
+  {% endblock %}
+
+  {% block main %}
+  <div class="row" style="margin-top:20px">
+    <div class="col-lg-6">
+      <h1>Active</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>test_id</th>
+            <th>Date Created</th>
+          </tr>
+        </thead>
+        {% for test in active %}
+        <tbody>
+          <tr>
+            <td>{{ test.test_id }}</td>
+            <td>{{ test.date }}</td>
+            <td><button type="button" class="btn ">View Details</button></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <h1>Completed</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>test_id</th>
+            <th>Date Created</th>
+          </tr>
+        </thead>
+        {% for test in completed %}
+        <tbody>
+          <tr>
+            <td>{{ test.test_id }}</td>
+            <td>{{ test.date }}</td>
+            <td><button type="button" class="btn ">View Details</button></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+
+
+  {% endblock %}

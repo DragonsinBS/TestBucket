@@ -10,15 +10,17 @@ class Course(models.Model):
     course_id=models.IntegerField(primary_key=True)
     course_name=models.CharField(max_length=32)
     teacher_handling_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
+    description=models.CharField(max_length=128)
 
 class Student(models.Model):
     student_id=models.IntegerField(primary_key=True)
-    student_name=models.CharField(max_length=32)
+    student_name=models.CharField(max_length=32,default='')
 
 class Test(models.Model):
     test_id=models.IntegerField(primary_key=True)
     date=models.DateField()
     course_id=models.ForeignKey(Course,on_delete=models.CASCADE,)
+    active=models.BooleanField(default=True)
 
 class Question(models.Model):
     question_id=models.IntegerField(primary_key=True)

@@ -3,9 +3,14 @@
 {% block title %}
 Create Test
 {% endblock %}
+{% block navs %}
+<ul class="nav navbar-nav navbar-right">
+    <li ><a href="/logout" class="logout_btn">Logout</a></li>
+  </ul>
+  {% endblock %}
 
-{% block body %}
-<div class="row">
+{% block main %}
+<div class="row" style="margin-top:20px">
 
 
   <div class="col-lg-1">
@@ -59,6 +64,7 @@ Create Test
 
 
 </div>
+
 
 
 {% endblock %}
