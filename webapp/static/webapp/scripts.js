@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded',()=>{
   var count=0;
-
   document.getElementById('add_question').onclick=()=>{
     if(count == 0){
       document.getElementById('create_test').disabled=false;
@@ -9,15 +8,23 @@ document.addEventListener('DOMContentLoaded',()=>{
       alert("Only 10 questions allowed");
       return false;
     }
-    question=document.getElementById('question').value;
-    a=document.getElementById('option-a').value;
-    b=document.getElementById('option-b').value;
-    c=document.getElementById('option-c').value;
-    d=document.getElementById('option-d').value;
-    document.getElementById('questions').innerHTML+=`<li><h5  class="white"> ${question}</h5><ol type="A"><li  class="white"">${a}</li><li  class="white">${b}</li><li  class="white">${c}</li><li  class="white">${d}</li></ol></li>`;
     count++;
-
+    document.getElementById('questions').innerHTML+=`<br><li>
+   <textarea name="question-${count}" rows=5 cols=50 required></textarea>
+   <ol id="options" type="A">
+      <li  class="white""><input required name="question-${count}-A"></li>
+      <li  class="white"><input required name="question-${count}-B"></li>
+      <li  class="white"><input required name="question-${count}-C"></li>
+      <li  class="white"><input required name="question-${count}-D"></li>
+   </ol>
+   <label>Correct Option:</label><select name="correct">
+    <option value='A'>Option A</option>
+    <option value='B'>Option B</option>
+    <option value='C'>Option C</option>
+    <option value='D'>Option D</option>
+   </select>
+   </li>`;
+    document.getElementById('count').value=count;
+    return false;
   };
-
-
 });

@@ -10,20 +10,24 @@ Answer Test
 {% endblock %}
 {% block main %}
 <div class="container">
-
+<form action="/student/submit_test/{{test_id}}" method="post">
+  {% csrf_token %}
 
 <ol class="white" style="margin-left:200px;margin-right:200px;">
   {% for item in questions %}
   <li color="white">
     <h5  class="white">{{ item.question }}</h5>
-    <input type="radio" name="{{ forloop.counter }}" ><span class='white'>{{ item.optionA }}</span><br>
-    <input type="radio" name="{{ forloop.counter }}" ><span class='white'>{{ item.optionB }}</span><br>
-    <input type="radio" name="{{ forloop.counter }}"><span class='white'>{{ item.optionC }}</span><br>
-    <input type="radio" name="{{ forloop.counter }}"><span class='white'>{{ item.optionD }}</span>
-  </li>
+    <label>Select option</label>  <select  name="{{ forloop.counter }}">
+      <option value="A">A.{{ item.optionA }}</option>
+      <option value="B">B.{{ item.optionB }}</option>
+      <option value="C">C.{{ item.optionC }}</option>
+      <option value="D">D.{{ item.optionD }}</option>
+    </select>
+
   {% endfor %}
 </ol>
-<button type="button" class="btn " style="background-color:#02294f !important;color:white !important;width:100px;margin-left:230px;margin-bottom:40px">Submit Test</button>
+<button type="submit" class="btn " style="background-color:#02294f !important;color:white !important;width:100px;margin-left:230px;margin-bottom:40px">Submit Test</button>
+</form>
 </div>
 
 

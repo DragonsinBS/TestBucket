@@ -10,53 +10,30 @@ Create Test
   {% endblock %}
 
 {% block main %}
+
 <div class="row" style="margin-top:20px">
 
 
   <div class="col-lg-1">
 
   </div>
-<div class="col-lg-4 shadow-box">
-  <form id="question-field" >
-    <div class="form-group">
-      <h4 class="white">Add questions here</h4>
-    </div>
 
-    <fieldset class="form-group">
-      <label for="formGroupExampleInput"  class="white">Question</label>
-      <textarea type="text" class="form-control" id="question" rows=5></textarea>
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="formGroupExampleInput2"  class="white">Option A</label>
-      <input type="text" class="form-control" id="option-a">
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="formGroupExampleInput2"  class="white">Option B</label>
-      <input type="text" class="form-control" id="option-b">
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="formGroupExampleInput2"  class="white">Option C</label>
-      <input type="text" class="form-control" id="option-c" >
-  </fieldset>
-    <fieldset class="form-group">
-      <label for="formGroupExampleInput2"  class="white">Option D</label>
-      <input type="text" class="form-control" id="option-d" >
-    </fieldset>
-    <button type="button"  class="btn site_btn" id="add_question">Add Question</button>
-  </form>
-</div>
-<div class="col-lg-2">
 
-</div>
 
-<div class="col-lg-4  shadow-box" style="overflow-y: scroll !important;">
+<div class="col-lg-10  shadow-box" style="overflow-y: scroll !important;">
   <h4 class="white">Preview</h4>
+  <button class="btn site_btn" id="add_question">Add Question</button>
+
+  <form action="/teacher/{{course_id}}/create_test" method="post">
+    {% csrf_token %}
+  <input name="count" id="count" hidden value=0>
   <ol id="questions">
 
   </ol>
 
-  <button type="button"  class="btn site_btn" id="create_test" disabled>Create Test</button>
+  <button type="submit"  class="btn site_btn" id="create_test" disabled>Create Test</button>
 
+  </form>
 </div>
 <div class="col-lg-1">
 

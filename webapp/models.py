@@ -1,29 +1,31 @@
 from django.db import models
+from datetime import datetime
 from enum import Enum
+from django.utils import timezone
 
 # Create your models here.
 class Teacher(models.Model):
-    teacher_id=models.IntegerField(primary_key=True)
+    teacher_id=models.AutoField(primary_key=True)
     teacher_name=models.CharField(max_length=32)
 
 class Course(models.Model):
-    course_id=models.IntegerField(primary_key=True)
+    course_id=models.AutoField(primary_key=True)
     course_name=models.CharField(max_length=32)
     teacher_handling_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
     description=models.CharField(max_length=128)
 
 class Student(models.Model):
-    student_id=models.IntegerField(primary_key=True)
+    student_id=models.AutoField(primary_key=True)
     student_name=models.CharField(max_length=32,default='')
 
 class Test(models.Model):
-    test_id=models.IntegerField(primary_key=True)
-    date=models.DateField()
+    test_id=models.AutoField(primary_key=True)
+    date=models.DateField(default=datetime.now)
     course_id=models.ForeignKey(Course,on_delete=models.CASCADE,)
     active=models.BooleanField(default=True)
 
 class Question(models.Model):
-    question_id=models.IntegerField(primary_key=True)
+    question_id=models.AutoField(primary_key=True)
     course_id=models.ForeignKey(Course,on_delete=models.CASCADE)
     question=models.TextField()
     optionA=models.CharField(max_length=32)
@@ -38,7 +40,7 @@ class Question(models.Model):
     ('C','Option C'),
     ('D','Option D')
     ]
-
+    test_id=models.ForeignKey(Test,on_delete=models.CASCADE)
     answer=models.CharField(max_length=1,choices=options)
 
 class Response(models.Model):
@@ -56,13 +58,13 @@ class Response(models.Model):
     ('D','Option D')
     ]
     response=models.CharField(max_length=1,choices=options)
-    scores=[(1,1),(1,1)]
-    score=models.IntegerField(choices=scores,default=1)
+    scores=[(0,0),(1,1)]
+    score=models.IntegerField(choices=scores)
 
 class TotalScore(models.Model):
     student_id=models.ForeignKey(Student, on_delete=models.CASCADE)
     test_id=models.ForeignKey(Test, on_delete=models.CASCADE)
-
+    course_id=models.ForeignKey(Course,on_delete=models.CASCADE)
     #the below code is to make multiple foreign keys
     class Meta:
         unique_together=(('student_id','test_id'))

@@ -228,7 +228,7 @@ margin-left: 4px;
 
 .shadow-box{
   height: 650px;
-  background-color: rgba(50, 50, 50, 0.5);
+  background-color: #29275f66;
   padding: 10px;
   border-style: solid;
   /*box-shadow: 5px 5px #0753f3;*/
@@ -253,6 +253,7 @@ div.scrollmenu div:hover {
 
 
 .logout_btn{
+  padding-right: 20px !important;
   font-size: 25px !important;
   color: #02294f !important;
   font-family: 'Pacifico', cursive !important;
@@ -280,12 +281,12 @@ div.scrollmenu div:hover {
 }
 
 .site_btn{
-  background-color: #98a3c7;
+  background-color: #f64b53;
   color: #fff;
 }
 
-#create_test{
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 20px;
-}
+/*#create_test{
+  position: absolute !important;
+  bottom: 0 !important;
+  margin-bottom: 20px !important;
+}*/

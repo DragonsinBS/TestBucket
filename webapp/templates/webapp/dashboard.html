@@ -17,6 +17,7 @@ Dashboard
 
   }
   </style>
+{% if teacher %}
 <div class="container">
 
 <div class="card-columns">
@@ -34,8 +35,23 @@ Dashboard
 
 </div>
 </div>
-
-
-
-
+{%endif%}
+{% if student %}
+<p hidden>
+  student
+  </p>
+<div class="container">
+<div class="card-columns">
+  {% for course in courses %}
+  <div class="card" style="background-color=#10946F !important">
+  <div class="card-body">
+    <h4 class="card-title">{{course.course_name}}</h4>
+    <p class="card-text">{{course.description}}</p>
+    <a class="btn card-link" href="/student/course/{{course.course_id}}" style="background-color:#02294f;color:white">Go To Course</a>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+{%endif%}
 {% endblock %}

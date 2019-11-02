@@ -1,0 +1,65 @@
+{% extends 'webapp/template.html' %}
+{% block title %}
+Responses for :Test{{ test_id }}
+{% endblock %}
+
+{% block navs %}
+<ul class="nav  navbar-right">
+    <li ><a href="/logout" class="logout_btn">Logout</a></li>
+  </ul>
+
+  {% endblock %}
+
+  {% block main %}
+
+<div class="row" style="margin-top:20px">
+
+  <div class="col-lg-12">
+    <h1>Responses</h1>
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>question</th>
+          <th>correct option</th>
+          <th>selected option</th>
+          <th>score</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {% for question in questions %}
+        <tr>
+
+          <td>{{ question.question }}</td>
+<td>{{ question.correct_option }}</td>
+<td>{{ question.selected_option }}</td>
+<td>{{ question.score }}</td>
+
+        </tr>
+        {% endfor %}
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Maximum Marks</th>
+          <th>{{ total }}</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Total</th>
+          <th>{{ total_score }}</th>
+        </tr>
+      </tbody>
+
+
+    </table>
+
+  </div>
+</div>
+<input type="button" style="width:75px"onclick="window.print()" value="Print" class="btn">
+
+
+  {% endblock %}

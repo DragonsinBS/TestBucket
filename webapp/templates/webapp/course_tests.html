@@ -4,14 +4,18 @@
 {% endblock %}
 
 {% block navs %}
+
 <ul class="nav  navbar-right">
+  {% if not student %}
     <li ><a href="/teacher/{{course_id}}/create_test" class="logout_btn" style="color:#29275f ;margin-right:20px;border-right:solid">New Test<i class="material-icons">add_box</i></a></li>
+{% endif %}
     <li ><a href="/logout" class="logout_btn">Logout</a></li>
   </ul>
 
   {% endblock %}
 
   {% block main %}
+  {% if not student %}
   <div class="row" style="margin-top:20px">
     <div class="col-lg-6">
       <h1>Active</h1>
@@ -27,7 +31,7 @@
           <tr>
             <td>{{ test.test_id }}</td>
             <td>{{ test.date }}</td>
-            <td><button type="button" class="btn ">View Details</button></td>
+            <td><form action="/teacher/test_summary/{{test.test_id}}"><button type="submit" class="btn ">View Details</button></form></td>
           </tr>
         </tbody>
         {% endfor %}
@@ -47,14 +51,60 @@
           <tr>
             <td>{{ test.test_id }}</td>
             <td>{{ test.date }}</td>
-            <td><button type="button" class="btn ">View Details</button></td>
+            <td><form  action="/teacher/test_summary/{{test.test_id}}"><button type="submit" class="btn ">View Details</button></form></td>
           </tr>
         </tbody>
         {% endfor %}
       </table>
     </div>
   </div>
+{% endif %}
 
+{% if student %}
+<div class="row" style="margin-top:20px">
+  <div class="col-lg-6">
+    <h1>Active</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>test_id</th>
+          <th>Date Created</th>
+        </tr>
+      </thead>
+      {% for test in active %}
+      <tbody>
+        <tr>
+          <td>{{ test.test_id }}</td>
+          <td>{{ test.date }}</td>
+          <td><form action="/student/answer_test/{{test.test_id}}"><button type="submit" class="btn ">Give Test</button></form></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="col-lg-6">
+    <h1>Completed Tests</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Test ID</th>
+          <th>Score</th>
+          <th></th>
+        </tr>
+      </thead>
+      {% for test in completed %}
+      <tbody>
+        <tr>
+          <td>{{ test.test_id }}</td>
+          <td>{{ test.total_marks}}</td>
 
+          <td><form action="/student/responses/{{test.test_id}}"><button type="submit"  class="btn">View Details</button></form></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endif %}
 
   {% endblock %}
