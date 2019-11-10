@@ -5,11 +5,13 @@ Answer Test
 {% endblock %}
 {% block navs %}
 <ul class="nav navbar-nav navbar-right">
-    <li ><a href="/logout" class="logout_btn">Logout</a></li>
+  <li ><a href="/student/course/{{course_id}}"  class="logout_btn">Back</a><a href="/logout" class="logout_btn">Logout</a></li>
+
+
   </ul>
 {% endblock %}
 {% block main %}
-<div class="container">
+<div class="container" style="max-width: 100% !important;">
 <form action="/student/submit_test/{{test_id}}" method="post">
   {% csrf_token %}
 

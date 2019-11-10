@@ -64,7 +64,6 @@ class Response(models.Model):
 class TotalScore(models.Model):
     student_id=models.ForeignKey(Student, on_delete=models.CASCADE)
     test_id=models.ForeignKey(Test, on_delete=models.CASCADE)
-    course_id=models.ForeignKey(Course,on_delete=models.CASCADE)
     #the below code is to make multiple foreign keys
     class Meta:
         unique_together=(('student_id','test_id'))

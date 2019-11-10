@@ -6,7 +6,12 @@
 {% block navs %}
 
 <ul class="nav  navbar-right">
+  {% if student %}
+  <li ><a href="/student/dashboard"  class=" logout_btn">Back</a></li>
+  {%endif%}
   {% if not student %}
+  <li ><a href="/teacher/dashboard"  style="color:#29275f ;margin-right:20px;border-right:solid" class="logout_btn">Back</a></li>
+
     <li ><a href="/teacher/{{course_id}}/create_test" class="logout_btn" style="color:#29275f ;margin-right:20px;border-right:solid">New Test<i class="material-icons">add_box</i></a></li>
 {% endif %}
     <li ><a href="/logout" class="logout_btn">Logout</a></li>
@@ -22,7 +27,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th>test_id</th>
+            <th>Test ID</th>
             <th>Date Created</th>
           </tr>
         </thead>
@@ -42,7 +47,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th>test_id</th>
+            <th>Test ID</th>
             <th>Date Created</th>
           </tr>
         </thead>
@@ -67,7 +72,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>test_id</th>
+          <th>Test ID</th>
           <th>Date Created</th>
         </tr>
       </thead>
@@ -95,10 +100,10 @@
       {% for test in completed %}
       <tbody>
         <tr>
-          <td>{{ test.test_id }}</td>
+          <td>{{ test.test_id.test_id }}</td>
           <td>{{ test.total_marks}}</td>
 
-          <td><form action="/student/responses/{{test.test_id}}"><button type="submit"  class="btn">View Details</button></form></td>
+          <td><form action="/student/responses/{{test.test_id.test_id}}"><button type="submit"  class="btn">View Details</button></form></td>
         </tr>
       </tbody>
       {% endfor %}

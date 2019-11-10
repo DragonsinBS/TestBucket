@@ -5,6 +5,8 @@ Responses for :Test{{ test_id }}
 
 {% block navs %}
 <ul class="nav  navbar-right">
+  <li ><a href="/student/course/{{course_id}}"  class="logout_btn">Back</a></li>
+
     <li ><a href="/logout" class="logout_btn">Logout</a></li>
   </ul>
 
@@ -20,10 +22,10 @@ Responses for :Test{{ test_id }}
 
       <thead>
         <tr>
-          <th>question</th>
-          <th>correct option</th>
-          <th>selected option</th>
-          <th>score</th>
+          <th>Question</th>
+          <th>Correct Option</th>
+          <th>Selected Option</th>
+          <th>Score</th>
 
         </tr>
       </thead>
