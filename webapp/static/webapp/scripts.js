@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       <li  class="white"><input required name="question-${count}-C"></li>
       <li  class="white"><input required name="question-${count}-D"></li>
    </ol>
-   <label>Correct Option:</label><select name="correct">
+   <label>Correct Option:</label><select name="correct-${count}">
     <option value='A'>Option A</option>
     <option value='B'>Option B</option>
     <option value='C'>Option C</option>
