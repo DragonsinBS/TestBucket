@@ -111,6 +111,7 @@ def commit_total(test,student,score):
 
 def responses_view(request,test_id):
     test=Test.objects.get(test_id=test_id)
+    course_name=test.course_id.course_name
     course_id=test.course_id.course_id
     student=Student.objects.get(student_name=request.session['user_name'])
     responses=Response.objects.filter(student_id=student,test_id=test)
@@ -119,7 +120,7 @@ def responses_view(request,test_id):
     for ct in range(responses.count()):
         res_list.append({"question":questions[ct].question,"correct_option":questions[ct].answer,"selected_option":responses[ct].response,"score":responses[ct].score})
     total=TotalScore.objects.get(test_id=test,student_id=student)
-    return render(request,"webapp/responses.html",{"questions":res_list,"total_score":total.total_marks,"test_id":test.test_id,"total":responses.count(),"course_id":course_id})
+    return render(request,"webapp/responses.html",{"questions":res_list,"total_score":total.total_marks,"test_id":test.test_id,"total":responses.count(),"course_id":course_id,"course_name":course_name})
 
 def teacher_dashboard(request):
     teacher=Teacher.objects.filter(teacher_name=request.session['user_name'])[0]
@@ -157,8 +158,9 @@ def student_dashboard(request):
 
 def view_test(request,test_id):
     test=Test.objects.get(test_id=test_id)
+    course=test.course_id
     questions=Question.objects.filter(test_id=test)
-    return render(request,"webapp/view_test.html",{"test_id":test_id,"questions":questions})
+    return render(request,"webapp/view_test.html",{"test_id":test_id,"questions":questions,"course":course})
 
 
 def teacher_course(request,course_id):
