@@ -7,22 +7,30 @@ from django.utils import timezone
 class Teacher(models.Model):
     teacher_id=models.AutoField(primary_key=True)
     teacher_name=models.CharField(max_length=32)
+    def __str__(self):
+        return self.teacher_name+'('+str(self.teacher_id)+')'
 
 class Course(models.Model):
     course_id=models.AutoField(primary_key=True)
     course_name=models.CharField(max_length=32)
     teacher_handling_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
     description=models.CharField(max_length=128)
+    def __str__(self):
+        return self.course_name
 
 class Student(models.Model):
     student_id=models.AutoField(primary_key=True)
     student_name=models.CharField(max_length=32,default='')
+    def __str__(self):
+        return self.student_name+'('+str(self.student_id)+')'
 
 class Test(models.Model):
     test_id=models.AutoField(primary_key=True)
     date=models.DateField(default=datetime.now)
     course_id=models.ForeignKey(Course,on_delete=models.CASCADE,)
     active=models.BooleanField(default=True)
+    def __str__(self):
+        return self.course_id.course_name+'-'+str(self.test_id)
 
 class Question(models.Model):
     question_id=models.AutoField(primary_key=True)
