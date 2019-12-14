@@ -120,7 +120,7 @@ def responses_view(request,test_id):
     for ct in range(responses.count()):
         res_list.append({"question":questions[ct].question,"correct_option":questions[ct].answer,"selected_option":responses[ct].response,"score":responses[ct].score})
     total=TotalScore.objects.get(test_id=test,student_id=student)
-    return render(request,"webapp/responses.html",{"questions":res_list,"total_score":total.total_marks,"test_id":test.test_id,"total":responses.count(),"course_id":course_id,"course_name":course_name})
+    return render(request,"webapp/responses.html",{"questions":res_list,"total_score":total.total_marks,"test_id":test.test_id,"total":responses.count(),"course_id":course_id,"course_name":course_name,"test":test})
 
 def teacher_dashboard(request):
     teacher=Teacher.objects.filter(teacher_name=request.session['user_name'])[0]
